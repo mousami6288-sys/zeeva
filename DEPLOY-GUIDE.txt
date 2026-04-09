@@ -1,0 +1,104 @@
+=====================================================
+  ZIVA CATALYST — Deployment Guide
+  How to Get Your Website Live
+=====================================================
+
+OPTION 1: GITHUB PAGES (Recommended — Best for SEO)
+----------------------------------------------------
+GitHub Pages gives you a free, fast website with a custom domain.
+
+1. Push this code to your GitHub repository (already done).
+2. Go to your repo: https://github.com/mousami6288-sys/zeeva
+3. Click "Settings" > "Pages" (left sidebar).
+4. Under "Source", select "Deploy from a branch".
+5. Choose the branch: claude/ziva-catalyst-website-8KfY8
+6. Choose folder: / (root)
+7. Click "Save".
+8. Your site will be live at: https://mousami6288-sys.github.io/zeeva/
+9. (Optional) Add a custom domain like zivacatalyst.com in the same settings.
+
+WHY THIS IS BEST:
+- Full SEO support (meta tags, structured data all work perfectly)
+- Custom domain support
+- Free SSL certificate (HTTPS)
+- Fast global CDN
+- All search engines can crawl it
+
+
+OPTION 2: GOOGLE SITES (Embed Method)
+--------------------------------------
+Google Sites does NOT support direct HTML upload. However, you can
+embed your website hosted on GitHub Pages inside Google Sites.
+
+1. First, deploy to GitHub Pages (Option 1 above).
+2. Go to https://sites.google.com and create a new site.
+3. Click "Insert" > "Embed" > "Embed code" or "By URL".
+4. Choose "By URL" and paste your GitHub Pages URL.
+5. Resize the embed to fill the page.
+
+IMPORTANT LIMITATIONS:
+- Google Sites wraps embeds in iframes, which limits SEO value.
+- For best SEO results, use GitHub Pages directly with a custom domain.
+
+
+OPTION 3: NETLIFY (Free, Easy, SEO-Friendly)
+---------------------------------------------
+1. Go to https://netlify.com and sign up.
+2. Drag and drop the folder containing index.html, style.css,
+   and script.js onto the Netlify dashboard.
+3. Your site is instantly live with a free URL.
+4. Add a custom domain in Site Settings > Domain Management.
+
+
+OPTION 4: ANY WEB HOSTING
+--------------------------
+Simply upload these 3 files to your web hosting:
+  - index.html
+  - style.css
+  - script.js
+
+Place them in the root (public_html) folder of your hosting.
+
+
+=====================================================
+  CONNECTING A CUSTOM DOMAIN
+=====================================================
+For the best SEO results, connect a custom domain like:
+  zivacatalyst.com
+
+1. Purchase a domain from Google Domains, Namecheap, or GoDaddy.
+2. Point the domain's DNS to your hosting provider.
+3. For GitHub Pages: Add a CNAME record pointing to
+   mousami6288-sys.github.io
+
+
+=====================================================
+  SEO CHECKLIST (Already Implemented)
+=====================================================
+[x] Title tag optimized with primary keywords
+[x] Meta description with compelling copy
+[x] Open Graph tags for social sharing
+[x] Twitter Card tags
+[x] JSON-LD structured data (ProfessionalService)
+[x] FAQ Schema markup (AEO)
+[x] Semantic HTML5 elements
+[x] Mobile-responsive design
+[x] Fast loading (no heavy frameworks)
+[x] Accessible (skip links, ARIA labels, semantic markup)
+[x] Internal linking structure
+[x] Keyword-rich headings (H1, H2, H3 hierarchy)
+[x] canonical URL tag
+
+
+=====================================================
+  NEXT STEPS FOR MAXIMUM SEO
+=====================================================
+1. Submit your sitemap to Google Search Console.
+2. Set up Google Analytics for visitor tracking.
+3. Create a Google My Business listing.
+4. Add real testimonial photos and names.
+5. Create blog content regularly for organic traffic.
+6. Build backlinks from relevant industry sites.
+7. Update the canonical URL in index.html to your real domain.
+8. Add real social media profile URLs in the footer links.
+9. Replace placeholder email/phone with actual contact info.
