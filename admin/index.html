@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7CWNGP7WX2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7CWNGP7WX2');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin Login | Ziva Catalyst</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="login-page">
+
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="login-logo">
+          <span class="logo-icon">Z</span>
+        </div>
+        <h1>Ziva Catalyst</h1>
+        <p>Admin Panel</p>
+      </div>
+
+      <form id="loginForm" class="login-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="admin@zivacatalyst.com" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password" />
+            <button type="button" id="togglePassword" class="toggle-pw" aria-label="Show password">
+              <span id="eyeIcon">&#128065;</span>
+            </button>
+          </div>
+        </div>
+        <div id="loginError" class="login-error" hidden>
+          Invalid email or password. Please try again.
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+      </form>
+
+      <div class="login-footer">
+        <p><a href="../index.html">&larr; Back to Website</a></p>
+      </div>
+    </div>
+
+    <!-- First-Time Setup Panel (shown only if no credentials configured) -->
+    <div id="setupPanel" class="login-card setup-card" hidden>
+      <div class="login-header">
+        <h2>First-Time Setup</h2>
+        <p>Set your admin email and password</p>
+      </div>
+      <form id="setupForm" class="login-form">
+        <div class="form-group">
+          <label for="setupEmail">Admin Email</label>
+          <input type="email" id="setupEmail" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="setupPassword">Create Password</label>
+          <input type="password" id="setupPassword" placeholder="Minimum 6 characters" minlength="6" required />
+        </div>
+        <div class="form-group">
+          <label for="setupConfirm">Confirm Password</label>
+          <input type="password" id="setupConfirm" placeholder="Repeat password" minlength="6" required />
+        </div>
+        <div class="form-group">
+          <label for="setupToken">GitHub Personal Access Token</label>
+          <input type="password" id="setupToken" placeholder="ghp_xxxxxxxxxxxx" required />
+          <span class="form-hint">Needed to publish blog posts. Create one at GitHub &gt; Settings &gt; Developer settings &gt; Personal access tokens &gt; Fine-grained tokens. Grant "Contents" read/write permission for the zeeva repo.</span>
+        </div>
+        <div id="setupError" class="login-error" hidden></div>
+        <button type="submit" class="btn btn-primary btn-full">Create Admin Account</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

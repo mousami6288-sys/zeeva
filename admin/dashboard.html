@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7CWNGP7WX2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7CWNGP7WX2');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Dashboard | Ziva Catalyst Admin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="dashboard-page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <span class="logo-icon">Z</span>
+      <span class="sidebar-brand">Ziva <strong>Catalyst</strong></span>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="sidebar-link active" data-panel="dashboard-panel">
+        <span class="sidebar-icon">&#9632;</span> Dashboard
+      </button>
+      <button class="sidebar-link" data-panel="blogs-panel">
+        <span class="sidebar-icon">&#9998;</span> Blog Posts
+      </button>
+      <button class="sidebar-link" data-panel="new-post-panel">
+        <span class="sidebar-icon">&#10010;</span> New Blog Post
+      </button>
+      <button class="sidebar-link" data-panel="settings-panel">
+        <span class="sidebar-icon">&#9881;</span> Site Settings
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="../index.html" class="sidebar-link" target="_blank">
+        <span class="sidebar-icon">&#127760;</span> View Website
+      </a>
+      <button class="sidebar-link" id="logoutBtn">
+        <span class="sidebar-icon">&#10140;</span> Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- TOPBAR (mobile) -->
+  <header class="topbar">
+    <button class="topbar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <span class="topbar-title">Ziva Catalyst Admin</span>
+    <span class="topbar-user" id="topbarUser"></span>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- ===== DASHBOARD PANEL ===== -->
+    <section class="panel active" id="dashboard-panel">
+      <div class="panel-header">
+        <h1>Dashboard</h1>
+        <p>Welcome back! Here's an overview of your website.</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-box-number" id="totalPosts">0</div>
+          <div class="stat-box-label">Blog Posts</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-number">8</div>
+          <div class="stat-box-label">Platform Pages</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-number">6</div>
+          <div class="stat-box-label">Services Listed</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-number">7</div>
+          <div class="stat-box-label">FAQs</div>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <h3>Quick Actions</h3>
+        <div class="actions-grid">
+          <button class="action-card" data-goto="new-post-panel">
+            <span class="action-icon">&#10010;</span>
+            <span>Write New Blog Post</span>
+          </button>
+          <a href="../blog/index.html" class="action-card" target="_blank">
+            <span class="action-icon">&#128214;</span>
+            <span>View Blog</span>
+          </a>
+          <button class="action-card" data-goto="settings-panel">
+            <span class="action-icon">&#9881;</span>
+            <span>Edit Site Settings</span>
+          </button>
+          <a href="../index.html" class="action-card" target="_blank">
+            <span class="action-icon">&#127760;</span>
+            <span>View Live Website</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="recent-section">
+        <h3>Recent Blog Posts</h3>
+        <div id="recentPosts" class="posts-list">
+          <p class="loading-text">Loading blog posts...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BLOG POSTS PANEL ===== -->
+    <section class="panel" id="blogs-panel">
+      <div class="panel-header">
+        <h1>Blog Posts</h1>
+        <button class="btn btn-primary" data-goto="new-post-panel">+ New Post</button>
+      </div>
+      <div id="allPosts" class="posts-list">
+        <p class="loading-text">Loading blog posts...</p>
+      </div>
+    </section>
+
+    <!-- ===== NEW/EDIT BLOG POST PANEL ===== -->
+    <section class="panel" id="new-post-panel">
+      <div class="panel-header">
+        <h1 id="postPanelTitle">Write New Blog Post</h1>
+      </div>
+      <form id="blogPostForm" class="post-form">
+
+        <div class="form-section">
+          <h3>Post Content</h3>
+          <div class="form-group">
+            <label for="postTitle">Title <span class="req">*</span></label>
+            <input type="text" id="postTitle" placeholder="e.g. Why LinkedIn Business Pages Matter" required />
+            <span class="char-count" id="titleCount">0/100</span>
+          </div>
+          <div class="form-group">
+            <label for="postCategory">Category</label>
+            <select id="postCategory">
+              <option value="Social Media Marketing">Social Media Marketing</option>
+              <option value="Content Creation">Content Creation</option>
+              <option value="Paid Advertising">Paid Advertising</option>
+              <option value="Brand Strategy">Brand Strategy</option>
+              <option value="Analytics">Analytics</option>
+              <option value="SEO">SEO</option>
+              <option value="LinkedIn Marketing">LinkedIn Marketing</option>
+              <option value="Instagram Marketing">Instagram Marketing</option>
+              <option value="Facebook Marketing">Facebook Marketing</option>
+              <option value="YouTube Marketing">YouTube Marketing</option>
+              <option value="Google Ads">Google Ads</option>
+              <option value="WhatsApp Marketing">WhatsApp Marketing</option>
+            </select>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="postReadTime">Read Time</label>
+              <input type="text" id="postReadTime" placeholder="e.g. 8 min read" value="5 min read" />
+            </div>
+            <div class="form-group">
+              <label for="postDate">Publish Date</label>
+              <input type="date" id="postDate" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Post Body</h3>
+          <p class="form-hint-block">Use the toolbar to format your content. The editor supports headings, bold, italic, lists, links, blockquotes, and images.</p>
+
+          <!-- Simple Rich Text Toolbar -->
+          <div class="editor-toolbar">
+            <button type="button" class="toolbar-btn" data-cmd="formatBlock" data-val="H2" title="Heading 2">H2</button>
+            <button type="button" class="toolbar-btn" data-cmd="formatBlock" data-val="H3" title="Heading 3">H3</button>
+            <span class="toolbar-sep"></span>
+            <button type="button" class="toolbar-btn" data-cmd="bold" title="Bold"><strong>B</strong></button>
+            <button type="button" class="toolbar-btn" data-cmd="italic" title="Italic"><em>I</em></button>
+            <span class="toolbar-sep"></span>
+            <button type="button" class="toolbar-btn" data-cmd="insertUnorderedList" title="Bullet List">&#8226; List</button>
+            <button type="button" class="toolbar-btn" data-cmd="insertOrderedList" title="Numbered List">1. List</button>
+            <span class="toolbar-sep"></span>
+            <button type="button" class="toolbar-btn" id="insertLinkBtn" title="Insert Link">&#128279; Link</button>
+            <button type="button" class="toolbar-btn" data-cmd="formatBlock" data-val="BLOCKQUOTE" title="Blockquote">&#10077; Quote</button>
+            <span class="toolbar-sep"></span>
+            <button type="button" class="toolbar-btn" data-cmd="removeFormat" title="Clear Formatting">&#10006; Clear</button>
+          </div>
+          <div class="editor-area" id="postBody" contenteditable="true">
+            <p>Start writing your blog post here...</p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>SEO Settings</h3>
+          <div class="form-group">
+            <label for="postMetaDesc">Meta Description <span class="req">*</span></label>
+            <textarea id="postMetaDesc" rows="3" placeholder="A compelling 150-160 character description for search engines..." required></textarea>
+            <span class="char-count" id="metaDescCount">0/160</span>
+          </div>
+          <div class="form-group">
+            <label for="postKeywords">Keywords (comma-separated)</label>
+            <input type="text" id="postKeywords" placeholder="e.g. LinkedIn marketing, B2B strategy, social media" />
+          </div>
+          <div class="form-group">
+            <label for="postSlug">URL Slug</label>
+            <div class="slug-preview">
+              <span class="slug-prefix">/blog/</span>
+              <input type="text" id="postSlug" placeholder="your-blog-post-title" />
+              <span class="slug-suffix">.html</span>
+            </div>
+            <span class="form-hint">Auto-generated from title. Edit if needed.</span>
+          </div>
+        </div>
+
+        <!-- Status Messages -->
+        <div id="publishStatus" class="publish-status" hidden></div>
+
+        <div class="form-actions">
+          <button type="button" id="previewBtn" class="btn btn-outline">Preview</button>
+          <button type="submit" id="publishBtn" class="btn btn-primary">Publish to Website</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===== SITE SETTINGS PANEL ===== -->
+    <section class="panel" id="settings-panel">
+      <div class="panel-header">
+        <h1>Site Settings</h1>
+        <p>Manage your contact info and GitHub token</p>
+      </div>
+      <form id="settingsForm" class="post-form">
+        <div class="form-section">
+          <h3>Contact Information</h3>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="settingsEmail">Contact Email</label>
+              <input type="email" id="settingsEmail" placeholder="hello@zivacatalyst.com" />
+            </div>
+            <div class="form-group">
+              <label for="settingsPhone">Phone / WhatsApp</label>
+              <input type="tel" id="settingsPhone" placeholder="+91 XXXXX XXXXX" />
+            </div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="settingsLinkedIn">LinkedIn Profile URL</label>
+              <input type="url" id="settingsLinkedIn" placeholder="https://linkedin.com/in/yourname" />
+            </div>
+            <div class="form-group">
+              <label for="settingsInstagram">Instagram URL</label>
+              <input type="url" id="settingsInstagram" placeholder="https://instagram.com/yourhandle" />
+            </div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="settingsFacebook">Facebook Page URL</label>
+              <input type="url" id="settingsFacebook" placeholder="https://facebook.com/yourpage" />
+            </div>
+            <div class="form-group">
+              <label for="settingsYouTube">YouTube Channel URL</label>
+              <input type="url" id="settingsYouTube" placeholder="https://youtube.com/@yourchannel" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>GitHub Integration</h3>
+          <div class="form-group">
+            <label for="settingsRepo">Repository</label>
+            <input type="text" id="settingsRepo" value="mousami6288-sys/zeeva" readonly />
+            <span class="form-hint">Repository where your website is hosted</span>
+          </div>
+          <div class="form-group">
+            <label for="settingsBranch">Branch</label>
+            <input type="text" id="settingsBranch" value="claude/ziva-catalyst-website-8KfY8" />
+          </div>
+          <div class="form-group">
+            <label for="settingsToken">GitHub Personal Access Token</label>
+            <input type="password" id="settingsToken" placeholder="ghp_xxxxxxxxxxxx" />
+            <span class="form-hint">Your token is stored locally in your browser only. It is never uploaded or shared.</span>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Change Password</h3>
+          <div class="form-group">
+            <label for="currentPw">Current Password</label>
+            <input type="password" id="currentPw" placeholder="Enter current password" />
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="newPw">New Password</label>
+              <input type="password" id="newPw" placeholder="Minimum 6 characters" minlength="6" />
+            </div>
+            <div class="form-group">
+              <label for="confirmPw">Confirm New Password</label>
+              <input type="password" id="confirmPw" placeholder="Repeat new password" />
+            </div>
+          </div>
+        </div>
+
+        <div id="settingsStatus" class="publish-status" hidden></div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save Settings</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===== PREVIEW MODAL ===== -->
+    <div id="previewModal" class="modal" hidden>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Blog Post Preview</h2>
+          <button class="modal-close" id="closePreview">&times;</button>
+        </div>
+        <div class="modal-body">
+          <iframe id="previewFrame" class="preview-frame"></iframe>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
